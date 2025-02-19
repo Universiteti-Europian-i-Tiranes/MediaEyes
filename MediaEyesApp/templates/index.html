@@ -1,0 +1,101 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediaEyes</title>
+    <link rel="stylesheet" href="{% static 'css/index.css'%}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+{%include 'navbar.html'%}
+<!--Background-->
+<div class="background">
+<div class="background-text">
+   <!--<h1> Keep all moment near yourself to live with it ...</h1>-->
+</div>
+</div>
+<!--Fund Background-->
+<!--Shiritat Marketing-->
+<div class="brand-container">
+    <div class="brand-item">ALBANIA</div>
+    <div class="brand-item">EUROPEAN UNION</div>
+    <div class="brand-item">JOURNALISM</div>
+    <div class="brand-item">ALBANIA</div>
+    <div class="brand-item">EUROPEAN UNION</div>
+    <div class="brand-item">JOURNALISM</div>
+    <div class="brand-item">ALBANIA</div>
+    <div class="brand-item">EUROPEAN UNION</div>
+    <div class="brand-item">JOURNALISM</div>
+    <div class="brand-item">ALBANIA</div>
+</div>
+
+<div class="key-brand">
+    <p><i class='bx bx-star'></i> Toward European Integration: Albania’s Path to EU Membership <i class='bx bx-star'></i></p>
+</div>
+
+<div class="brand-container">
+    <div class="brand-item">ALBANIA</div>
+    <div class="brand-item">EUROPEAN UNION</div>
+    <div class="brand-item">JOURNALISM</div>
+    <div class="brand-item">ALBANIA</div>
+    <div class="brand-item">EUROPEAN UNION</div>
+    <div class="brand-item">JOURNALISM</div>
+    <div class="brand-item">ALBANIA</div>
+    <div class="brand-item">EUROPEAN UNION</div>
+    <div class="brand-item">JOURNALISM</div>
+    <div class="brand-item">ALBANIA</div> 
+</div>
+<!--FUND SHIRITAT MARKWTING-->
+<!--About-->
+<div class="about-before">
+<h2>About</h2>
+<div class="row">
+    <div class="card">
+      <div class="card-header">
+        <h1>Video News</h1>
+      </div>
+      <div class="card-body">
+        <p>
+          You can show video from Youtube copying a link in that
+        </p>
+        <a href="{%url 'videoshow'%}" class="btn">Read more</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <h1>Analyse Text</h1>
+      </div>
+      <div class="card-body">
+        <p>
+          You can analyse the using words inside news showing what are words , how much words are used , and the context
+        </p>
+        <a href="videoshow" class="btn">Read more</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <h1>Transcript News</h1>
+      </div>
+      <div class="card-body">
+        <p>
+          You can transcript news which is showed by coping of link in Youtube
+        </p>
+        <a href="videoshow" class="btn">Read more</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!--Fund About-->
+<!--Footer-->
+{%include 'footer.html'%}
+  <!--Fund Footer-->
+<script src="{% static 'javascript/index.js'%}"></script>
+
+</body>
+</html>

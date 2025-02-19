@@ -1,0 +1,160 @@
+*{   /*Selektori * rregullon margjinat dhe padding-un për të gjitha elementet dhe siguron njësi konsistente me box-sizing: border-box.*/
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+/*Vendos font-family në Arial për një pamje të pastër, sans-serif dhe qendron tekstin. background-color: #c7f8ff ofron një sfond të butë dhe vizualisht të këndshëm.*/
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;  /*margin dhe padding per matjen e distances brenda nje kornize dhe jashte kornize*/
+    padding: 0;
+    background-color: #c7f8ff;
+  }
+  
+  /*Klasa .container përcakton një seksion qendror me padding, sfond të bardhë, cepat të rrumbullakosura dhe një hije të lehtë për një pamje moderne si kartë.*/
+  .container {
+    max-width: 2000px;
+    /*margin: 40px;*/
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  /*Elementi h1 ka madhësi të përshtatshme për të qenë i dukshëm.*/
+  h1 {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+  
+  /*Fushat input kanë gjerësi të bollshme (80%), padding dhe qoshe të rrumbullakosura për komoditet dhe estetikë.*/
+  input {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  /*Butonat kanë një gradient tërheqës dhe një efekt hover për interaktivitet më të mirë.
+    Ngjyrat (#5fcaca dhe #127ba7) ofrojnë një pamje profesionale dhe të harmonizuar.*/
+  button {
+    padding: 10px 20px;
+    font-size: 20px; /*madhesia e shkrimit*/
+    background :linear-gradient(to right , #5fcaca , #127ba7); 
+    color: white;
+    border: none; /*nuk do te kete kornize*/
+    border-radius: 4px; /*madhesia e cepave rrethore*/
+    cursor: pointer; /*shnderrimi i shigjetes se mouse ne nje dore me gisht tregues kur shigjeta ndodhet siper butonit dhe kur klikon ate*/
+  }
+  
+  button:hover {
+    background : linear-gradient(to right , #80dfdf , #2d9ac9); /*efekti i ngjyres se butonit  kur shigjeta eshte siper tij*/
+  }
+  
+   /*#video-container përdor display: flex për të qendruar videon qe shfaqet . iframe përshtatet me gjerësinë dhe ruan raportin 16:9 për një dizajn të përgjegjshëm. Qoshet e rrumbullakosura dhe hija përmirësojnë paraqitjen vizuale.*/
+  #video-container {  
+    margin-top: 20px;
+    display: flex;
+  }
+
+/*Fushat textarea janë dizajnuar për përdorshmëri me madhësi të mjaftueshme, padding dhe sfond të butë.*/
+  textarea {
+    width: 100%; /*gjatesia e fushes se tekstit*/
+    height: 150px;/*gjeresia*/
+    padding: 12px 20px;/*distanca*/
+    box-sizing: border-box;/*siguron njesi konsistente ne madhesi*/
+    border: 2px solid #ccc; /*textarea ka kornize me madhesi dhe ngjyre te caktuar*/
+    border-radius: 4px; /*madhesia e cepit te kornizes te rrumbullakosur*/
+    background-color: #f8f8f8; /*ngjyra e textarea*/
+    font-size: 16px; /*madhesia e shkrimit*/
+    resize: none; /*siguron qe nuk ka asnje ndryshim ne madhesi gjate pershtatshmerise me madhesi ekrani*/
+  }
+
+/*Tabelat janë dizajnuar për lexueshmëri me kufij, padding dhe ngjyra alternative për rreshtat (tr:nth-child(even)) për dallim më të mirë të rreshtave.
+Menaxhimi i overflow-it me display: block siguron që tabelat të jenë të scroll-ueshme në ekranet më të vogla.*/
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    overflow-x: auto;
+    display: block;
+  }
+  
+  td, th {    /*ngjyrat e rreshtave dhe kolonave*/
+    border: 1px solid #dddddd;    
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {     /*është një selektor CSS që përdoret për të stiluar rreshtat çift të një tabele HTML. psh : rreshti i dyte dhe i katert e keshtu me rradhe te ngjyroset*/
+    background-color: #dddddd; 
+  }
+
+
+
+  /*@media queries përshtatin paraqitjen për ekranet më të ngushta se 768px dhe 425px:
+Gjerësia e .container rregullohet për ekranet më të vogla.
+Tabelat bëhen të scroll-ueshme, dhe qelizat e tabelave shfaqen si blloqe për lexueshmëri më të mirë.*/
+  @media (max-width: 768px) {
+    .container {
+      width: 900px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+  }
+  
+  @media (max-width: 425px) {
+    .container {
+      width: 100%;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+  
+    table {
+      width: 100%;
+      display: block;
+      overflow-x: auto;
+    }
+  
+    td, th {
+      display: block;
+      width: 100%;
+      text-align: right;
+    }
+  
+    td {
+      margin-bottom: 10px;
+    }
+  }
+
+
+  #video-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Mbush gjithë gjerësinë e prindit */
+  }
+  
+  #video-container iframe {
+    width: 100%; /* Videoja do të zërë gjerësinë e prindit */
+    max-width: 560px; /* Kufizon gjerësinë maksimale */
+    height: auto; /* Lartësia përshtatet automatikisht */
+    aspect-ratio: 16 / 9; /* Ruaj raportin e përmasave 16:9 */
+    border-radius: 8px; /* Opsionale: qoshet e rrumbullakosura */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Opsionale: hijet */
+  }
+  
+  @media (max-width: 768px) {
+    #video-container iframe {
+      max-width: 90%; /* Pak më e vogël në pajisjet mobile */
+    }
+  }
+  

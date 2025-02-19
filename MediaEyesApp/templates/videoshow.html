@@ -1,0 +1,52 @@
+
+
+<!DOCTYPE html>
+{%load static%}
+<html lang="sq">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MediaEyes-Videoshow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="{% static 'css/videoshow.css'%}">
+  <link rel="stylesheet" href="{% static 'css/index.css'%}">
+</head>
+<body>
+  {%include 'navbar.html'%}
+  <div style="height: 100px;"></div> 
+  <div class="container">
+    <h1>Fut lidhjen e videos nga YouTube</h1>
+    <input type="text" id="youtube-link" placeholder="Fut linkun e videos nga YouTube">
+    <button onclick="shfaqVideo()">Shfaq Video</button>
+    <div id="video-container"></div>
+    <!--<textarea placeholder='ketu do te jete transkriptimi' readonly></textarea>-->
+    <textarea aria-label="Video transcription output" placeholder='Këtu do të jetë transkriptimi' readonly></textarea>
+    <table id="word-analysis">
+      <thead>
+          <tr>
+              <th>Nr</th>
+              <th>Fjalë</th>
+              <th>Shpeshtësia</th>
+              <th>Formatet</th>
+              <th>Konteksti/Kuptimi</th>
+              <th>Shpjegimi</th>
+              <th>Vendodhja</th>
+          </tr>
+          
+      </thead>
+      <tbody></tbody>
+  </table>
+
+  </div>
+<meta name="description" content="Display YouTube videos and analyze their content using MediaEyes-Videoshow.">
+<meta name="keywords" content="YouTube, video analysis, transcription, word frequency">
+
+{% include 'footer.html' %}
+</body>
+<script src="{% static 'javascript/videoshow.js'%}"></script>
+<script src="{% static 'javascript/index.js'%}"></script>
+
+</html>

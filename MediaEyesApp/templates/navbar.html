@@ -1,0 +1,20 @@
+{%load static%}
+<header class="header">
+    <!--Logo-->
+  <a href="#" class="logo">MediaEyes</a>
+  <input type="checkbox" id="check">
+  <!--Butonat per menu dhe close ne rastin e pershtatshmerise per mobile dhe tablet -->
+ <label for="check" class="icons">
+    <i class='bx bx-menu' id="menu-icon"></i>
+    <i class='bx bx-x' id="close-icon"></i>
+ </label>
+
+  <!--Navbar-->
+  <nav class="navbar">
+    <a href="{%url 'index'%}" style="--i:0;">Home</a>
+  <!--<a href="about.html" style="--i:1;">VideoShow</a>
+   <a href="product.html" style="--i:2;">Trancript The Video</a>-->
+    <a href="{% url 'videoshow'%}" style="--i:1;">VideoShow</a>
+    <a href="{%url 'contact'%}" style="--i:2;">Contact</a>
+  </nav>
+  </header>

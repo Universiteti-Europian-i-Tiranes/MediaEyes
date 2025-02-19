@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>MediaEyes- Contact</title>
+</head>
+<body>
+  {% include 'navbar.html' %}
+  
+  <div class="background-contact">
+      <div class="background-text-contact">
+          <h1>We are looking forward to hear from you!</h1>
+      </div>
+  </div>
+
+  <div class="container-contact">
+    {% if messages %}
+      <ul>
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+    <form method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}
+     
+      <button type="submit" id="button">Submit</button>
+
+    </form>
+  </div>
+
+  {% include 'footer.html' %}
+
+  <script src="{%static 'javascript/index.js'%}"></script>
+<script src="{%static 'javascript/contact.js'%}"></script> 
+ 
+</body>
+
+</html>

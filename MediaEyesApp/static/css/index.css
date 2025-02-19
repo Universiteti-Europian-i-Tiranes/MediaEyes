@@ -1,0 +1,568 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap'); /* @import - Komande qe lejon importimin e nje skedari tjeter CSS ne stilizim pa patur nevoje per ngarkim te jashtem te file (ne kete rast per stilin e shkrimit Poppins; https://fonts.googleapis.com/css2?family=Poppins:
+Kjo është URL-ja nga ku ngarkohet fonti Poppins. Google Fonts ofron fontin dhe parametrat e tij për t'u përdorur në faqe ; wght@300;400;500;600;700-Tregon trashesine e stilit te shkrimit që do të importohen duke filluar nga me e lehta (300) deri te me e trasha (700):
+Kjo mundëson përdorimin e variacioneve të ndryshme të fontit brenda projektit.  */
+
+*{  /* pjesa qe do te ndodhe gjate te gjithe file-it*/
+    margin:0; /* Vendos hapësirën e jashtme (margin) të çdo elementi në 0. Përdoret për të eliminuar margjinat e paracaktuara të disa elementeve (si body, h1, etj.), që zakonisht janë të ndryshme në shfletues të ndryshëm.*/
+    padding: 0; /* Vendos hapësirën e brendshme (padding) të çdo elementi në 0. Përdoret për të shmangur shtesat e paracaktuara të disa elementeve (si ul, ol, etj.), duke siguruar një fillim të pastër. */
+    font-family:"Poppins",sans-serif; /*Vendos fontin parësor për të gjitha elementet në "Popins" (Poppins). sans-serif është fonti rezervë që përdoret nëse Poppins nuk ngarkohet.*/
+    box-sizing: border-box; /*Width dhe height të përfshijnë padding dhe border në llogaritjen e dimensioneve totale të elementit. Ndihmon në shmangien e gabimeve kur vendosni madhësitë e elementeve.*/
+    
+ }
+ 
+ /*background imazh+tekst */
+ .background{
+     
+     min-height: 100vh; /* Siguron që seksioni të mbushë të gjithë lartësinë e ekranit */
+     background: url(../images/alb.png)no-repeat; /* Shto imazhin në sfond dhe parandalon përsëritjen */
+     background-size: cover;/* Bëhet që imazhi të mbulojë krejtësisht elementin */
+     background-position: center; /* Imazhi vendoset në qendër */
+}
+    
+ /*Navbar - Përdoret për të krijuar një navbar të ngjitur lartë */
+  .header {
+     position: fixed; /*pozicionohet në mënyrë fikse në krye të faqeve*/
+     top:0; /*Vendoset në pozicionin më të sipërm*/
+     left:0; /*Vendoset në majën e majtë*/
+     width: 100%; /*Përdor gjerësinë maksimale*/
+     padding: 1.3rem 10%; /*Përdor 10% margjinë në anët e djathta dhe të majta dhe 1.3rem per lart-poshte */     
+     display: flex; /**/
+     justify-content: space-between; /*Distancë midis elementeve të navbar-it*/
+     align-items: center; /*Pozicionon elementet në qendër vertikalisht*/
+     z-index: 100; /*Siguron që navbar të jetë në krye të elementeve të tjerë*/
+  }
+ 
+
+  /* Efekti i hije dhe blur për navbar-in */
+  .header::before {
+    content: '';   /* */
+    position:absolute; /* */
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .1); /*Efekt hije*/
+    backdrop-filter: blur(50px); /*Aplikon një efekt blur në sfond*/
+    top: 0;  
+    left: 0;
+    z-index: -1; /*Siguron që bluri të jetë prapa navbar-it*/
+    box-shadow: 0.5rem 1rem rgba(0, 0, 0, .1); /*efekti një hije të vogël*/
+  
+  }
+ 
+  /*Efekti i animuar i kalimit të ngjyrave për navbar*/
+  .header::after{
+    content: ''; 
+    position:absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: -100%;
+    /*linear-gradient(90deg, ...): Kjo krijon një gradient që kalon horizontalisht (nga e majta në të djathtë) në një kënd prej 90 gradë. Pra, efekti i gradientit do të jetë i orientuar horizontalisht, duke filluar nga maja e majtë dhe duke u zhvendosur në të djathtë.
+      transparent: Kjo ngjyrë është e tejdukshme, që do të thotë që pjesa fillestare e gradientit është e padukshme (e hapur, pa ngjyrë).
+      rgba(255, 255, 255, .4): Ky është një gradient që kalon nga ngjyra e bardhë me transparencë 40% (.4 përfundon shpjegimin e transparencës). rgba(255, 255, 255, .4) është një ngjyrë e bardhë e butë me pak transparencë.
+      transparent: Pjesa e fundit e gradientit është gjithashtu transparente, duke krijuar një kalim të butë nga e bardha transparente në dy skajet e gradientit.*/
+    background: linear-gradient(90deg, transparent, rgba(255, 255 , 255 , .4) , transparent);
+    transition: .5s; /* Ndryshon pozicionin gradualisht për efekt animimi */
+  }
+ 
+  .header:hover::after {
+    left: 100%; /* Lëviz pamjen e kalimit kur mbivendoset navbar-i */
+ 
+  }
+ 
+  /* Krijon një markë individuale në navbar */
+  .brand-container>.brand-item{
+    color: rgb(5, 99, 153);
+  }
+
+  /*key brand dhe yjet*/
+  .key-brand>p ,.bx-star{
+    color: #ffd000;
+    
+  }
+
+  /*logo*/
+  .logo{
+     font-size: 2rem;
+     color: #fff;
+     text-decoration: none;
+     font-weight: 700;
+  }
+ 
+  /*Emrat ne navbar ; stilizime*/
+  .navbar a {
+     font-size: 1.15rem;
+     color: #fff;
+     text-decoration: none;
+     font-weight: 500;
+     margin-left: 2.5rem;
+  }
+ 
+  #check{ /*është një selektor që ka për qëllim të fshehë një element HTML me ID-në check*/
+     display: none; /*siguron që ky element të mos shfaqet fare në faqen e internetit. Përdoret shpesh në menutë që mund të hapen dhe mbyllen përmes një kutie kontrolli (<input type="checkbox">), duke e përdorur për të menaxhuar pamjen e elementeve të tjerë që varen nga ky kontroll (si ikona ose menu).*/
+  }
+
+  /*është një selektor që e aplikohet një klase HTML icons.*/
+  .icons{
+     font-size: 2.8rem; /*përcakton madhësinë e fontit për ikona që mund të përdoren, duke i bërë ato të jenë më të mëdha se sa madhësia standarde*/
+     color: #fff; /*vendos ngjyrën e ikonave të bardhë (#fff është kodi heksadecimal për ngjyrën e bardhë*/
+     cursor: pointer; /*shigjeta e mouse transformohen ne dore me gishtin tregues kur klikon dicka*/
+     display: none; /*fsheh gjithashtu këtë element në fillim, ndoshta deri sa një veprim (si klikimi i një butoni) ta bëjë të dukshëm*/
+     position: absolute; /*e pozicionon këtë element në një vend të caktuar në ekran, dhe right: 5%; e vendos këtë element afër djathtas, 5% larg skajit të djathtë të dritares së shfletuesit.*/
+     right: 5%;
+  }
+ 
+  /* fund navbar  */
+  /* shiriti i brandit*/
+  .brand-container {
+     width: 100%;
+     background-color:#FAFAF8; /* Ngjyra e sfondit të markave */
+     padding: 20px;
+     overflow-x: auto; /* Mund të shfaqen skroll horizontal për markat */
+     white-space: nowrap; 
+     display: flex;
+     justify-content: space-evenly; /* Përdor distancë të barabartë midis markave */
+ }
+ /*Shkrimi i brandit*/
+ .brand-item {
+     font-size: 2em; /*madhesia e shkrimit*/
+     color:rgb(5, 99, 153); /*ngjyra*/
+     background: #FAFAF8; /*ngjyra e sfondit*/
+     text-transform: uppercase; /*është një pronë CSS që bën që të gjithë shkronjat e tekstit të shfaqen në shkronja të mëdha (uppercase), pavarësisht se si janë shkruar ato në kodin HTML*/
+     font-weight: bold; /*është një pronë CSS që bën që teksti të shfaqet me një peshë më të madhe, duke përdorur një stil të trashë për shkronjat*/
+     padding: 0 30px; /*majtas-djathtas asnje distance , ndersa lart-poshte distanca 30px*/
+ }
+
+ .brand-container::-webkit-scrollbar {
+     display: none;   /* te mos shfaqet scrollbar*/
+ }
+ 
+ /* Hide scrollbar for other browsers */
+ .brand-container {
+     -ms-overflow-style: none;  /* IE and Edge */
+     scrollbar-width: none;  /* Firefox */
+ }
+ /*fund shiriti brand*/
+ /* key brand*/
+ .key-brand{
+     text-align: center; /*pozicioni i shkrimit*/
+ 
+ }
+ /*Shkrimi key brand*/
+ .key-brand>p{
+     color:#ffd000; /*ngjyra*/
+     font-size: 35px; /*Madhesia e shkrimit*/
+     padding:10px; /*Distanca*/
+     font-family: "Galada", cursive; /* Galada është një font i stilit kursive dhe shpesh përdoret për tituj, slogane ose për përmbajtje që kërkon një ndjesi elegancë ose personalizim të veçantë. Ky font duhet të jetë i përfshirë si pjesë e stilit të faqes për të pasur efektin e dëshiruar.
+                                        Cursive është një font që imitron shkrimin me dorë, me lëvizje të shpejta dhe të natyrshme të shkronjave, dhe është i përdorur shpesh për tekst me stil të lirë ose të veçantë.*/
+ 
+ }
+ /* fund key brand */
+ 
+ /* Product & Service Before */
+ .about-before {
+     background: #fefcfe; /*ngjyra e sfondit*/
+ }
+   /* h2 nga product-before */
+   .about-before>h2{
+     text-align: center; /*pozicioni*/
+     color:#000; /*ngjyra*/
+     padding-top: 5% ; /*distanca siper*/
+     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; /*llojet e stilit te shkrimeve te mundshme qe mund te shfaqen*/
+     font-weight: 500; /*trashesia e shkrimit */
+     font-size: 50px; /*madhesia e shkrimit*/
+   }
+   /*p nga product-before*/
+   /*
+   .about-before>p{
+     text-align: center;
+     padding-top: 5%;
+     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+     font-size: 25px;
+   }
+   */
+   .container {
+     width: 90%; /*Ky stil siguron që kontenieri të ketë një gjerësi prej 90% të dritares ose elementit të tij prind.*/
+     margin: 50px auto; /*Ky stil qendron kontenierin në qendër të ekranit. auto i jep marzhin e automatikshëm majtas dhe djathtas, ndërsa 50px krijon një hapësirë prej 50px sipër dhe poshtë.*/
+   }
+
+   .heading {
+     text-align: center; /*E bën tekstin në qendër*/
+     font-size: 30px; /*Përcakton madhësinë e fontit të titullit*/
+     margin-bottom: 50px; /*Siguron hapësirë poshtë titullit për të ndarë elementët që vijnë pas tij*/
+   }
+   
+   .row {
+     display: flex; /*Ky stil e bën elementin një flex container, që do të thotë se do të ketë një shtrirje të elementeve brenda*/
+     flex-direction: row; /*Elementet brenda do të rreshtohen në një rresht (horizontalisht)*/
+     justify-content: space-around; /*Siguron që hapësira mes elementeve të jetë e barabartë, duke i shpërndarë ata në mënyrë të barabartë.*/
+     flex-flow: wrap; /*Kjo i lejon elementeve të kalojnë në një rresht të ri nëse ka mungesë hapësire.*/
+     padding-top: 5%; /*Lë hapësirë prej 5% nga maja e elementit për të krijuar një distancë të pakët nga elementët që vijnë më sipër.*/
+   }
+   
+   .card {
+     width: 20%; /*Cakton çdo kartë të ketë 20% të gjerësisë së kontejnerit, duke lejuar që disa karta të vendosen krah njëra-tjetrës*/
+     background: #fff; /*Ngjyra e sfondit të kartës është e bardhë*/
+     border: 1px solid #ccc; /*Një kornize i hollë gri rrethon kartën.*/
+     margin-bottom: 50px; /*Shton hapësirë poshtë çdo karte për ndarje nga elementet poshtë*/
+     transition: 0.3s; /*Siguron që ndryshimet, si efektet e hover, të ndodhin me kalimin e kohës (0.3 sekonda)*/
+   }
+   
+   .card-header {
+     text-align: center; /*Cakton që përmbajtja brenda titullit të kartës të jetë ne qender*/
+     padding: 50px 10px; /*Shton mbushje brenda titullit: 50px në pjesën e sipërme dhe të poshtme, dhe 10px majtas dhe djathtas. */
+     background: linear-gradient(to right , #5fcaca , #127ba7); /*Krijon një sfond gradiente që kalon nga turkuiu (#5fcaca) në blu (#127ba7)*/
+     color: #fff; /*Ngjyra e tekstit është e bardhë për kontrast me sfondin gradiente*/
+   }
+   
+   .card-body {
+     padding: 30px 20px; /*Shton 30px mbushje në pjesën e sipërme dhe të poshtme dhe 20px majtas dhe djathtas brenda trupit të kartës.*/
+     text-align: center; /*Cakton që teksti të jetë i përqendruar brenda trupit të kartës*/
+     font-size: 18px;  /*Vendos madhësinë e shkronjave në 18px*/
+   } 
+   
+   .card-body .btn {
+     display: block; /*E bën butonin të marrë gjithë gjerësinë e konteinerit të tij.*/
+     color: #fff; /*Ngjyra e tekstit të butonit është e bardhë*/
+     text-align: center; /*Cakton që teksti i butonit të jetë i përqendruar*/
+     background: linear-gradient(to right , #5fcaca , #127ba7); /*Butoni ka të njëjtin sfond gradiente si titulli i kartës.*/
+     margin-top: 30px; /*Shton hapësirë sipër butonit për ndarje nga elementet e tjera.*/
+     text-decoration: none; /*Siguron që teksti i butonit nuk ka nënvizim*/
+     padding: 10px 5px; /*Shton mbushje për butonin për një zonë më të madhe klikimi*/
+   }
+   
+   .card:hover {
+     transform: scale(1.05); /*Kur kalon mbi kartën, ajo do të rritet pak (5%) për të dhënë një efekt zmadhimi.*/
+     box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.25); /*Pjesa e jashtme e kartës merr një hije të hollë*/
+   }
+   
+   @media screen and (max-width: 1000px) { /*Kjo mundëson që për ekranet më të vogla se 1000px (p.sh. në tableta), kartat të kenë një gjerësi prej 40% të gjerësisë së kontejnerit të tyre*/
+     .card {
+       width: 40%;
+     }
+   }
+   
+   @media screen and (max-width: 620px) {
+     .container {
+       width: 100%; /*Siguron që kontejneri të mbulojë gjithë gjerësinë e ekranit për ekranet më të vogla (në smartfonë, për shembull)*/
+     }
+   
+     /*Ul madhësinë e titullit dhe shton më shumë mbushje për t’u përshtatur me ekranet e vogla*/
+     .heading {
+       padding: 20px;
+       font-size: 20px;
+     }
+   
+     .card {
+       width: 80%; /*Kartat bëhen më të gjera për ekranet e vogla, duke rritur përqindjen e gjerësisë*/
+     }
+   }
+   
+   
+   
+   /* Fund Produkte & Sherbime */
+   /*Stilet për butonë dhe footer*/
+   button>a { /*shkrimi i butonit*/
+     text-decoration: none; /*Kjo heq çdo nënvizim */ 
+     color: #fff; /*bën që teksti i butonëve të jetë i bardhë.*/
+   }
+
+
+   /* footer */
+   .container-footer{  
+     max-width: 100%; /*Kjo siguron që footer të mbulojë gjithë gjerësinë e ekranit, pavarësisht se sa i gjerë është kontejneri i tij.*/
+     margin:auto; /*Ky stil është përdorur për të qendruar footer-in në mes të faqes, duke e pozicionuar në mënyrë horizontale, duke i dhënë një pamje të përqendruar*/
+ }
+
+ .row{
+     display: flex;  /*elementët brenda tij do të rreshtohen fleksibël. Ky stil është përdorur për të mundësuar një rreshtim dinamik dhe të fleksibël të kolonave brenda seksionit të footer-it.*/
+     flex-wrap: wrap; /*Ky stil siguron që elementët brenda .row do të kalojnë në një rresht të ri kur nuk kanë mjaft hapësirë horizontale, kështu që krijon një strukturë që mund të përshtatet në ekrane më të vogla.*/
+ }
+ ul{
+     list-style: none; /*Heq stilet e listave (p.sh., pikët) nga ul për një pamje më të pastër*/
+ }
+ /* Footer - Përdoret për seksionin e fundit të faqes */
+ .footer{
+     background-color: #14527c; /*Vendos ngjyrën e sfondit të footer-it në një nuancë të errët të blusë (#14527c).*/
+     padding: 70px 0; /*Shton hapësirë të mjaftueshme në pjesën e sipërme dhe të poshtme të footer-it për ta bërë më të lehtë leximin dhe ndarjen e seksioneve*/
+     
+ }
+
+ /* Strukturimi i koloneve në footer */
+ .footer-column{
+    width: 25%; /*Cakton që çdo kolonë në footer të ketë një gjerësi prej 25% të kontejnerit të saj, duke i mundësuar katër kolona që të rreshtohen në një rresht.*/
+    padding: 0 15px; /*Shton pak mbushje majtas dhe djathtas në secilën kolonë.*/
+ }
+
+ /*Shkrimi ne footer*/
+ .footer-column h4{
+     font-size: 18px; /*Madhësia e titujve në footer*/
+     color: #ffffff; /*Ngjyra e titujve është e bardhë*/
+     text-transform: capitalize; /*Bën që secili fjalë të fillojë me shkronjë të madhe*/
+     margin-bottom: 35px; /*Shton hapësirë poshtë secilit titull për ndarje të qartë*/
+     font-weight: 500; /*Përdor një peshë mesatare të shkronjave për një pamje më të thjeshtë*/
+     position: relative; /*E mundëson manipulimin e pozicionit të elementëve në të ardhmen, nëse është e nevojshme*/
+ }
+
+ /* Për titujt e footer-it, shto një linjë dekorative */
+ .footer-column h4::before{
+     content: ''; /*Kjo është nevoja e parë për përdorimin e pseudo-elementeve ::before dhe ::after. Ajo krijon një element të ri që mund të vendoset para përmbajtjes ekzistuese të një elementi. Në këtë rast, content: '' tregon se nuk do të ketë përmbajtje tekstuale, por vetëm një vizualizim grafik (një vijë)*/
+     position: absolute; /*Përdorimi i position: absolute e vendos këtë pseudo-element në një pozicion të përcaktuar në lidhje me prindin e tij më të afërt që ka pozicion të ndryshuar (nëse nuk ka një prind të pozicionuar, do të pozicionohet në lidhje me faqen)*/
+     /*left:0;*/
+     bottom: -10px; /*Vendos vija të jetë 10px më poshtë se fundi i elementit h4, duke e zhvendosur pseudo-elementin nga pozita e tij e zakonshme, për ta vendosur më afër fundshënies së h4*/
+     background-color: #f7e605; /*Kjo cakton ngjyrën e pasqyrës për vijën që do të shfaqet. Ngjyra #f7e605 është një nuancë e verdhë*/
+     height: 2px; /*Cakton lartësinë e pseudo-elementit (vijës) që do të jetë 2px. Ky është një vijë e ngushtë*/
+     box-sizing: border-box; /*Kjo është një mënyrë për të menaxhuar kufijtë dhe mbushjen e elementeve. Kur përdoret box-sizing: border-box;, lartësia dhe gjerësia e elementit përfshijnë kufijtë dhe mbushjen, që ndihmon për të kontrolluar më mirë dimensionet e elementeve.*/
+     width: 50px; /*Cakton gjerësinë e vijës që do të shfaqet të jetë 50px*/
+ }
+
+ /*selektimin e çdo li (element të listës) që nuk është i fundit në listë.*/
+ .footer-column ul li:not(:last-child){
+     margin-bottom: 10px; /*I shton një hapësirë të vogël (10px) në fund të çdo elementi li të listës, përveç elementit të fundit, për të krijuar hapësirë mes elementeve të listës. Kjo ndihmon në parandalimin e ngjeshjes së elementeve dhe siguron një pamje më të pastër.*/
+ }
+
+ /*Ky kod rregullon stilet për lidhjet a që ndodhen brenda elementeve li në kolonën e footer-it. Kjo është ajo që bëjnë secila prej pronave:*/
+ .footer-column ul li a{
+     font-size: 16px; /*Cakton madhësinë e fontit për lidhjet të jetë 16px.*/
+     text-transform: capitalize; /*Kjo do të konvertojë të parën shkronjë të çdo fjale në lidhje të jetë me shkronjë të madhe (kapitale).*/
+     color: #ffffff; /*Cakton ngjyrën e shkronjave të lidhjes të jetë e bardhë (#ffffff).*/
+     text-decoration: none; /*heq vijën nën lidhjet*/
+     font-weight: 300; /*Cakton peshën e fontit (lehtë, 300) për lidhjet.*/
+     color: #bbbbbb; /*Cakton ngjyrën e lidhjes të jetë një gri e butë (#bbbbbb).*/
+     display: block; /*Kjo e bën lidhjen të marrë të gjithë hapësirën në dispozicion brenda elementit li, duke e shndërruar lidhjen në një element block-level.*/
+     transition: all 0.3s ease; /*Ky efekt do të shtojë kalime të buta (transitions) për çdo ndryshim në stil, që ndodhin brenda 0.3 sekondave, me një animacion të lehtë. Kjo është përdorur për të krijuar efekte të bukura kur përdoruesi kalon me maus mbi lidhjen, duke i bërë ato të më të dukshme dhe të angazhuara vizualisht.*/
+ }
+
+ /* Efekti hover për linket në footer kur shigjeta ndodhet siper linkeve */
+ .footer-column ul li a:hover{
+     color: #ffffff; /* Ndryshon ngjyrën e linkeve kur kalon miu */
+     padding-left: 8px; /* Animacion ; një hapësirë të vogël kur kalon miu */
+ }
+ .footer-column .social-links a{
+     display: inline-block; /*Përdorimi i inline-block bën që lidhjet të sillen si elemente që janë të dukshme në një rresht, por gjithashtu mund të marrin dimensione dhe margjinë si elemente blok.*/
+     height: 40px; /*Cakton dimensionet e ikonës sociale për të pasur një formë të rrethuar me një lartësi dhe gjerësi të barabarta (40px).*/
+     width: 40px; /**/
+     background-color: rgba(255,255,255,0.2); /*Cakton ngjyrën e sfondit të ikonës sociale si të bardhë me transparencë të lehtë (20% opakiteti), duke krijuar një efekt të butë dhe të përshtatshëm vizualisht.*/
+     margin:0 10px 10px 0; /*Cakton një hapësirë prej 10px midis ikonave sociale. margin: 0 10px 10px 0 ka kuptimin që ka hapësirë horizontale të barabartë (10px) dhe një hapësirë të vogël nën çdo ikonë, pa hapësirë majtas.*/
+     text-align: center; /*Përdorimi i text-align: center; dhe line-height: 40px; bën që ikona të qëndrojë në qendër të kutisë (shuma e lartësisë dhe llojit të përmbajtjes që ndodhet aty)*/
+     line-height: 40px;
+     border-radius: 50%; /*Kjo krijon një formë të rrumbullakët për kutinë që mban ikonën, duke i dhënë asaj një pamje të një topi ose një rreth me anë të dhënies së vlerës 50% për radiusin e kufirit*/
+     color: #ffffff; /*Përdoret për të caktuar ngjyrën e ikonës brenda kutisë, duke e bërë atë të bardhë.*/
+     transition: all 0.5s ease; /*Kjo krijon një animacion të butë dhe të ngadaltë për çdo ndryshim që ndodh (për shembull, kur kalon me miun mbi ikonë). Efekti do të jetë i dukshëm pas 0.5 sekondash dhe do të ketë një kalim të natyrshëm dhe të qetë*/
+ }
+
+ .footer-column .social-links a:hover{
+     color: #24262b; /*Kur përdoruesi kalon miun mbi një lidhje ikone sociale (hover), ngjyra e ikonës ndryshon nga e bardhë në një gri të errët (ngjyra #24262b). Kjo i jep një efekt vizual kur përdoruesi e përshkon ikonën*/
+     background-color: #ffffff; /*Gjithashtu, sfondi i ikonës do të bëhet i bardhë në momentin që përdoruesi kalon miun mbi të, duke krijuar një kontrast më të madh dhe duke e bërë ikonën më të dallueshme.*/
+ }
+ 
+ /* Copyright*/
+ #copyright {
+   text-align: center; /*pozicioni i shkrimit */
+   color: #fff; /*ngjyra*/
+   padding-top: 5%; /*distanca siper me elementet e tjera*/
+ }
+ 
+ /*fund Copyright*/
+  /* pershtatshmeria me permasat e mobile dhe tablet */
+ 
+
+@media (max-width:1440px){
+  .background{
+     
+    min-height: 80vh; /* Siguron që seksioni të mbushë të gjithë lartësinë e ekranit */
+    background: url(../images/alb.png)no-repeat; /* Shto imazhin në sfond dhe parandalon përsëritjen */
+    background-size: cover;/* Bëhet që imazhi të mbulojë krejtësisht elementin */
+    background-position: center; /* Imazhi vendoset në qendër */
+   }
+}
+
+
+
+
+  @media (max-width:992px) {
+     .header{
+         padding:1.3rem 5%;
+ 
+     }
+     
+     .background{
+     
+      min-height: 50vh; /* Siguron që seksioni të mbushë të gjithë lartësinë e ekranit */
+      background: url(../images/alb.png)no-repeat; /* Shto imazhin në sfond dhe parandalon përsëritjen */
+      background-size: cover;/* Bëhet që imazhi të mbulojë krejtësisht elementin */
+      background-position: center; /* Imazhi vendoset në qendër */
+     }
+     .brand-container>.brand-item {
+      font-size: 1em; /*Përcakton madhësinë e tekstit*/
+      color: rgb(5, 99, 153); /*Vendos një ngjyrë blu të lehtë për tekstin*/
+      background: #FAFAF8; /*Vendos një sfond të bardhë të zbehtë*/
+      text-transform: uppercase; /*Teksti kthehet në shkronja të mëdha */
+      font-weight: bold; /*Teksti është i trashë*/
+      padding: 0 30px; /*Shton hapësirë të brendshme horizontale për një paraqitje të rregullt*/
+  }
+     
+  }
+ 
+ /* pershtatshmeria navbar ne lidhje me elementet e tjera*/
+  @media (max-width:768px){
+     .icons{
+         display: inline-flex; /* Shfaq ikonat për ndihmë në menu */
+     }
+ /* Pas klikimit, menu shfaqet dhe elementët e navbar-it shfaqen me animim */
+     #check:checked~.icons #menu-icons{
+         display: none;
+     }
+ 
+     .navbar {
+         position:absolute;
+         top:100%;
+         left:0;
+         width: 100%;
+         height: 0;
+         background: rgba(0, 0, 0, .1);
+         backdrop-filter: blur(50px);
+         transition: .3s ease;
+         overflow: hidden;
+ 
+     }
+  .icons #close-icon {
+     display: none;
+  }
+ 
+  #check:checked~.icons #close-icons{
+     display: block;
+ }
+ 
+ #check:checked~.navbar{
+     height: 17.7rem;
+ }
+     .navbar a {
+         display: block; /* Ndryshon linket në formën e blloqeve */
+         font-size: 1.1rem;
+         margin:1.5rem 0;
+         text-align: center;
+         transform:translateY(-50px);
+         transition: .3s ease;
+         opacity:0; /* Fsheh përkohësisht */
+ 
+     }
+ /* Shfaq linket me animim kur klikohen */
+     #check:checked~.navbar a{
+         transform:translateY(0);
+         transition-delay: calc(.15s * var(--i));
+         opacity:1;
+     }
+ 
+     .background{
+     
+         min-height: 30vh;
+         background: url(../images/alb.png)no-repeat;
+         background-size: cover;
+         background-position: center;
+            
+     }
+ 
+     .background-text{
+         position: absolute;
+         top: 28%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         text-align: center;
+         color: #fff;
+     }
+ 
+     .background-text>h1{
+         font-family: "Galada", cursive;
+         font-weight: 500;
+         font-size: 30px;
+         font-style: normal;
+         display: flex;
+     }
+
+     .key-brand>p{
+      color:#ffd000;
+      font-size: 25px;
+      padding:10px;
+      font-family: "Galada", cursive;
+  
+  }
+
+  .brand-container>.brand-item {
+    font-size: 1em;
+    color: rgb(5, 99, 153); ;
+    background: #FAFAF8;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 0 30px;
+} 
+  }
+ 
+  /* Pershtatshmeria ne footer*/
+ @media(max-width: 768px){
+  .footer{
+    margin-top: 10px;
+  }
+   .footer-col{
+     width: 50%;
+     margin-bottom: 30px;
+ }
+
+ .background{
+     
+  min-height: 25vh; /* Siguron që seksioni të mbushë të gjithë lartësinë e ekranit */
+  background: url(../images/alb.png)no-repeat; /* Shto imazhin në sfond dhe parandalon përsëritjen */
+  background-size: cover;/* Bëhet që imazhi të mbulojë krejtësisht elementin */
+  background-position: center; /* Imazhi vendoset në qendër */
+ }
+
+ }
+ @media(max-width: 574px){
+   .footer-col{
+     width: 100%;
+ }
+ 
+ }
+
+@media(max-width:425px){
+  .background{
+     
+    min-height: 20vh; /* Siguron që seksioni të mbushë të gjithë lartësinë e ekranit */
+    background: url(../images/alb.png)no-repeat; /* Shto imazhin në sfond dhe parandalon përsëritjen */
+    background-size: cover;/* Bëhet që imazhi të mbulojë krejtësisht elementin */
+    background-position: center; /* Imazhi vendoset në qendër */
+   }
+
+   /* Efekti i hije dhe blur për navbar-in */
+  .header::before {
+    content: '';   /* */
+    position:absolute; /* */
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .1); /*Efekt hije*/
+    backdrop-filter: blur(50px); /*Aplikon një efekt blur në sfond*/
+    top: 0;  
+    left: 0;
+    z-index: -1; /*Siguron që bluri të jetë prapa navbar-it*/
+    box-shadow: 0.5rem 1rem rgba(0, 0, 0, .1); /*efekti një hije të vogël*/
+  
+  }
+
+   /*logo*/
+   .logo{
+    font-size: 1.8rem;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    margin-bottom: 5px;
+ }
+}
+
+@media(max-width:1024px){
+  .background{
+     
+    min-height: 60vh; /* Siguron që seksioni të mbushë të gjithë lartësinë e ekranit */
+    background: url(../images/alb.png)no-repeat; /* Shto imazhin në sfond dhe parandalon përsëritjen */
+    background-size: cover;/* Bëhet që imazhi të mbulojë krejtësisht elementin */
+    background-position: center; /* Imazhi vendoset në qendër */
+   }
+}

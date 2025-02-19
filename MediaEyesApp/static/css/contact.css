@@ -1,0 +1,183 @@
+ /* pjesa qe do te ndodhe gjate te gjithe file-it*/
+*{
+  margin:0; /* Vendos hapësirën e jashtme (margin) të çdo elementi në 0. Përdoret për të eliminuar margjinat e paracaktuara të disa elementeve (si body, h1, etj.), që zakonisht janë të ndryshme në shfletues të ndryshëm.*/
+  padding: 0; /* Vendos hapësirën e brendshme (padding) të çdo elementi në 0. Përdoret për të shmangur shtesat e paracaktuara të disa elementeve (si ul, ol, etj.), duke siguruar një fillim të pastër. */
+  box-sizing: border-box;box-sizing: border-box; /*Width dhe height të përfshijnë padding dhe border në llogaritjen e dimensioneve totale të elementit. Ndihmon në shmangien e gabimeve kur vendosni madhësitë e elementeve.*/
+  
+}
+
+
+body {
+font-family: Arial, Helvetica, sans-serif; /*Ky rresht përdor "Arial" si font parësor dhe "Helvetica" si rezervë, duke ofruar një tekst të pastër dhe të lexueshëm për faqen. Nëse asnjë nga këto fonte nuk është i disponueshëm, përdoret fonti sans-serif si opsion përfundimtar.*/
+background: #fefcff; /*Ngjyra e sfontit*/
+}
+
+
+.background-contact{
+     
+  min-height: 80vh; /*Gjeresia sfontit*/
+  /*Përdor një gradient linear me dy shtresa ngjyrash: rgba(0, 0, 0, 0.5) që është një e zezë gjysmë transparente në fillim dhe në fund.Krijon një efekt të lehtë errësimi (overlay) mbi imazhin, duke ndihmuar që teksti ose përmbajtja mbi sfondin të jetë më e lexueshme. */
+/*url(../images/alb.png) përcakton një imazh që përdoret si sfond. Kjo është e lidhur nga një dosje relative ../images. Përdoret no-repeat, që siguron që imazhi të shfaqet vetëm një herë dhe të mos përsëritet në sfond */
+  background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),  url(../images/alb.png)no-repeat;
+  background-size: cover; /*Siguron që imazhi i sfondit të mbulojë të gjithë zonën e elementit.*/
+  background-position: center; /*Siguron që imazhi i sfondit të mbulojë të gjithë zonën e elementit.*/
+}
+ 
+
+.background-text-contact{
+  position: absolute; /*Pozicionon elementin në lidhje me prindin më të afërt që ka position: relative ose një tjetër pozicionim të përcaktuar.*/
+  /*Kombinimi i top dhe left me transform siguron që elementi të pozicionohet pikërisht në qendër të hapësirës vertikale dhe horizontale.*/
+  top: 38%; 
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center; /*Siguron që teksti brenda elementit të jetë i qendërzuar*/
+}
+
+.background-text-contact>h1{
+  font-family: "Galada", cursive;  /*Stilet e shkrimit*/
+  font-weight: 400; /*trashesia e shkrimit*/
+  font-size: 75px; /*madhesia e shkrimit*/
+  font-style: normal; /*stilizimi i shkrimit*/
+  display: flex; /*Menyra e shfaqjes per pershtatje : flex*/
+  color: #fff; /*ngjyra e shkrimit*/
+}
+
+
+
+input[type=text], select, textarea {    /*pjesa e vendit ku do te shkruaje perdoruesi*/
+  width: 100%; /*gjatesia*/
+  padding: 12px; /*distanca e hapsires brenda (mbushje)*/
+  border: 1px solid #ccc; /*treshesia dhe ngjyra e kornizes*/
+  border-radius: 4px; /*madhesia e rrethimit te cepit*/
+  box-sizing: border-box; /*shmangien e gabimeve ne madhesi*/
+  margin-top: 6px; /*distanca jashte kornizes nga lart */
+  margin-bottom: 16px; /*distanca nga jashte kornizes nga poshte*/
+  resize: vertical; /*siguron pershtatshmeri ne permasa te ndryshme vetem vertikalisht*/
+}
+
+input[type=email]{    /*pjesa ku do te shkruaje perdoruesi emailin*/
+    width:100%; /*gjatesia e pjeses ku do te shkruaje perdoruesi email*/
+    padding: 10px; /*distanca brenda kornizes*/
+    border: 1px solid #ccc; /*trashesia e ngjyres se kornizes*/
+    border-radius: 4px; /*madhesia e rrethimit te cepave*/
+    box-sizing: border-box; /*shmangia e gabimeve ne madhesi*/
+}
+
+input[type=tel]{  /*pjesa ku perdoruesi do shkruaje numrin e cel*/
+    width:100%; /*gjatesia e inputit*/
+    padding: 10px; /*distanca brenda kornizes*/
+    border: 1px solid #ccc; /*trashesia dhe ngjyra e kornizes*/
+    border-radius: 4px; /*madhesia e rrethimit te cepave te kornizes*/
+    box-sizing: border-box; /*shmangia e gabimeve ne madhesi*/
+}
+
+
+button#button {     /*dizenjimi i butonit submit*/
+  background-color: #04AA6D; /*ngjyra e sfondit*/
+  color: white; /*ngjyra e fontit*/
+  padding: 12px 30px; /*distanca brenda kornizes majtas-djathtas dhe lart-poshte*/
+  border: none; /*shmang prezencen e kornizes*/
+  border-radius: 4px; /*madhesia e harkimit te cepave*/
+  cursor: pointer; /*kur shigjeta e mouse eshte siper butonit dhe klikon ndryshohet ne formen e dores*/
+}
+
+button#button:hover {  /*transformim i butonit kur shigjeta e mouse eshte siper tij*/
+  background-color: #45a049; /*ngjyra e sfondit*/
+}
+
+
+.container-contact {  /*pjesa e kontenjerit te kontaktit*/
+  border-radius: 5px; /*madhesia e harkimit te cepave*/
+  background-color: #fefcff; /*ngjyra e sfontit*/
+  padding: 20px; /*distanca brenda konizes (mbushje)*/
+}
+
+
+@media (max-width:768px){
+  .icons{
+      display: inline-flex; 
+  }
+
+  #check:checked~.icons #menu-icons{  /* eshte nje krijuar nje buton check per te kryer funsksionin e shfaqjes se menuve duke klikuar nje buton ne improvizim kur kalon ne permasa me te vogla ne pershtatshmeri*/
+      display: none; /*te mos shfaqet check */
+  }
+
+
+  .navbar {
+      position:absolute;
+      top:100%;
+      left:0;
+      width: 100%;
+      height: 0;
+      background: rgba(0, 0, 0, .1);
+      backdrop-filter: blur(50px);
+      transition: .3s ease;
+      overflow: hidden;
+
+  }
+
+.icons #close-icon {
+  display: none;
+}
+
+#check:checked~.icons #close-icons{
+  display: block; /* Shfaq ikonën e mbylljes kur kutia e kontrollit është e shënuar */
+}
+
+#check:checked~.navbar{
+  height: 17.7rem;
+}
+
+
+  .navbar a {     /*shfaqja e shkronjave te menuve*/
+      display: block;
+      font-size: 1.1rem;
+      margin:1.5rem 0;
+      text-align: center;
+      transform:translateY(-50px);
+      transition: .3s ease;
+      opacity:0;
+
+  }
+
+  #check:checked~.navbar a{
+      transform:translateY(0);
+      transition-delay: calc(.15s * var(--i));
+      opacity:1;
+  }
+
+  .background-contact{
+  
+      min-height: 50vh;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/alb.png)no-repeat;
+      background-size: cover;
+      background-position: center;
+         
+  }
+
+  .background-text-contact{
+      position: absolute;
+      top: 28%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: #fff;
+  }
+
+  .background-text-contact>h1{
+      font-family: "Galada", cursive;
+      font-weight: 800;
+      font-size: 30px;
+      font-style: normal;
+      display: flex;
+  }
+
+.background-text>h1{
+  font-family: "Galada", cursive;
+  font-weight: 500;
+  font-size: 20px;
+  font-style: normal;
+  display: flex;
+}
+
+}
